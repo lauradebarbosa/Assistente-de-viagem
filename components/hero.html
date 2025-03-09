@@ -1,0 +1,119 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      Cote Abaixo o Melhor Preço em
+      <span>Seguro Viagem Internacional</span>
+    </h1>
+    <form>
+      <div class="hero-grid">
+        <div class="input-box">
+          <img src="/assets/icons/airplane.svg" alt="Airplane" />
+          <select placeholder="Para onde vai viajar?">
+            <option>América do Sul (Exceto Brasil)</option>
+            <option>América Central ou México</option>
+            <option>Estados Unidos ou Canadá</option>
+            <option>Europa ou Reino Unido</option>
+            <option>Ásia ou África ou Oceania</option>
+            <option>Mundo com Estados Unidos</option>
+            <option>Mundo sem Estados Unidos</option>
+            <option>Brasil Receptivo (visitantes)</option>
+            <option>Brasil (viagem doméstica)</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <img src="/assets/icons/calendar.svg" alt="Calendar" />
+          <label>Início da viagem</label>
+          <img src="/assets/icons/caret-down.svg" alt="Caret" />
+        </div>
+        <div class="input-box">
+          <img src="/assets/icons/calendar.svg" alt="Calendar" />
+          <label>Final da viagem</label>
+          <img src="/assets/icons/caret-down.svg" alt="Caret" />
+        </div>
+        <div class="input-box input-travelers">
+          <img src="/assets/icons/users.svg" alt="Users" />
+          <label>Quantidade de viajantes</label>
+          <img src="/assets/icons/caret-down.svg" alt="Caret" />
+        </div>
+        <div class="modal-travelers">
+          <div class="justify-between">
+            <h3>Viajantes</h3>
+            <div class="travelers-actions flex gap-20">
+              <button type="button" class="secundary-button button-minus">
+                <img src="/assets/icons/minus.svg" alt="Minus" />
+              </button>
+
+              <span>1</span>
+              <button type="button" class="secundary-button button-plus">
+                <img src="/assets/icons/plus.svg" alt="Plus" />
+              </button>
+            </div>
+          </div>
+          <div class="travelers-container"></div>
+          <button type="button" class="custom-button apply-travelers w-100">
+            Aplicar
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-data data-hidden">
+        <p>
+          Para ter acesso ao máximo de descontos, informe seus dados abaixo.
+        </p>
+
+        <div class="hero-grid flex-column">
+          <div class="input-box">
+            <img src="/assets/icons/user.svg" alt="User" />
+            <input type="text" placeholder="Nome" />
+          </div>
+          <div class="input-box">
+            <img
+              src="/assets/icons/tel-whatsapp.svg"
+              alt="Telephone e WhatsApp"
+            />
+            <input type="tel" placeholder="TEL/Whatsapp" />
+          </div>
+          <div class="input-box">
+            <img src="/assets/icons/email.svg" alt="Email" />
+            <input type="email" placeholder="E-mail" />
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions justify-between gap-20">
+        <div class="switch flex gap-10">
+          <label class="switch-label">
+            <input type="checkbox" class="switch-input" />
+            <span class="switch-slider"></span>
+          </label>
+          <span>Possui cupom de desconto</span>
+        </div>
+
+        <button class="custom-button" type="button">
+          <img src="/assets/icons/search.svg" alt="Search" />Cotar Preços
+        </button>
+
+        <div class="modal-coupon">
+          <div class="coupon-title flex gap-10">
+            <img src="/assets/icons/check-gradient.svg" alt="Check" />
+            <p>Aplique o cupom PROMO para ganhar 15% off</p>
+          </div>
+
+          <div class="input-box">
+            <img src="/assets/icons/coupon.svg" alt="Coupon" />
+            <input type="text" placeholder="Cupom" />
+          </div>
+
+          <div class="coupon-actions flex-center gap-10">
+            <button type="button" class="secundary-button w-100">
+              Limpar cupom
+            </button>
+            <button type="button" class="custom-button apply-coupon w-100">
+              Aplicar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

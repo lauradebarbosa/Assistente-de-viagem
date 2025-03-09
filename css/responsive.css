@@ -1,0 +1,201 @@
+/* ---------------- Responsive Styles ---------------- */
+
+@media (max-width: 768px) {
+    .title h2 {
+        font-size: 28px;
+    }
+
+    .title h3 {
+        font-size: 16px;
+    }
+
+    /* Topbar */
+
+    .topbar .topbar-content {
+        padding: 10px;
+    }
+
+    .topbar .topbar-content .logo img {
+        height: 30px;
+    }
+
+    .topbar .topbar-content .link-button span,
+    .topbar .topbar-content .link-button p,
+    .topbar label,
+    .topbar .arrow {
+        display: none;
+    }
+
+    /* Hero */
+
+    .hero-content {
+        padding: 40px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-actions .custom-button {
+        width: 100%;
+    }
+
+    .modal-travelers {
+        left: 0;
+        width: 100%;
+    }
+
+    .modal-coupon {
+        top: 30%;
+        width: 100%;
+    }
+
+    /* Benefits */
+
+    .benefits-content {
+        padding: 40px 20px;
+    }
+
+    .benefits-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Steps */
+
+    .steps-content {
+        padding: 40px 20px;
+    }
+
+    .steps-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .steps-grid .arrow-icon {
+        rotate: 90deg;
+    }
+
+    /* Reviews */
+
+    .reviews-content {
+        padding: 40px 20px;
+    }
+
+    .reviews-content .reviews-header img {
+        display: none;
+    }
+
+    .reviews-button-left,
+    .reviews-button-right {
+        display: none;
+    }
+
+    .reviews-pagination {
+        display: flex;
+    }
+
+    /* Video */
+
+    .video-content {
+        padding: 40px 20px;
+    }
+
+    /* Information */
+
+    .information-content {
+        padding: 40px 20px;
+    }
+
+    .information-actions {
+        display: none;
+    }
+
+    .information-cards {
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+    }
+
+    .information-cards .card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .information-content .pagination-dots {
+        display: flex;
+    }
+
+    /* FAQ */
+
+    .faq-content {
+        padding: 40px 20px;
+    }
+
+    /* Media */
+
+    .media-content {
+        padding: 40px 20px;
+    }
+
+    .media-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Footer */
+
+    .footer-content {
+        padding: 40px 20px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-logo {
+        width: 250px;
+    }
+
+    .footer-social img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-social a {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Hero */
+
+    .hero-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* Benefits */
+
+    .benefits-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* Media */
+
+    .media-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --grayscale-0: #FDFDFD;
+    --grayscale-10: #F4F4F4;
+    --grayscale-20: #EDEDED;
+    --grayscale-40: #A4A4A4;
+    --grayscale-60: #646464;
+    --grayscale-100: #131313;
+    --blue-base: #009ADA;
+    --horizon-gradient: linear-gradient(45deg, #A9C923 0%, #A6DA79 100%);
+    --amber-gradient: linear-gradient(45deg, #009ADA 0%, #004681 100%);
+}
+
+/* ---------------- Body Global Styles ---------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: var(--grayscale-10);
+    color: var(--grayscale-100);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.title {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.title h2 {
+    color: var(--grayscale-100);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.title h3 {
+    background: var(--amber-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* ---------------- Button Utilities ---------------- */
+
+.custom-button {
+    background: var(--horizon-gradient);
+    min-height: 50px;
+    border-radius: 12px;
+    border: none;
+    color: var(--grayscale-0);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-button:hover {
+    background: var(--amber-gradient);
+}
+
+.custom-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.secundary-button {
+    background: var(--grayscale-20);
+    min-height: 50px;
+    border-radius: 12px;
+    color: var(--grayscale-100);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+}
+
+.secundary-button:hover {
+    background: var(--grayscale-40);
+}
+
+/* ---------------- Width Utilities ---------------- */
+
+.w-100 {
+    width: 100%;
+}
+
+/* ---------------- Flexbox Utilities ---------------- */
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------------- Gap Utilities ---------------- */
+
+.gap-10 {
+    gap: 10px;
+}
+
+.gap-20 {
+    gap: 20px;
+}
+
+/* ---------------- Input Utilities ---------------- */
+
+.input-box {
+    width: 100%;
+    height: 50px;
+    border-radius: 12px;
+    border: 1px solid var(--grayscale-60);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.input-box:hover {
+    border: 1px solid var(--blue-base);
+}
+
+.input-box img {
+    width: 20px;
+    height: 20px;
+}
+
+.input-box input,
+.input-box select,
+.input-box label {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--grayscale-100);
+    background-color: transparent;
+}
+
+.input-box select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('/assets/icons/caret-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 0px center;
+    background-size: 20px;
+    padding-right: 30px;
+}
+
+.input-box input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('/assets/icons/caret-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 0px center;
+    background-size: 20px;
+    position: relative;
+}
+
+.input-box input[type="date"]::-webkit-calendar-picker-indicator {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+}
