@@ -71,8 +71,17 @@ function initHeroModals() {
   document
     .querySelector(".switch-input")
     .addEventListener("change", function () {
-      const modalCoupon = document.querySelector(".modal-coupon");
-      modalCoupon.style.display = this.checked ? "block" : "none";
+      const modalOverlay = document.querySelector(".modal-overlay");
+      modalOverlay.style.display = this.checked ? "flex" : "none";
+    });
+
+  document
+    .querySelector(".modal-overlay")
+    .addEventListener("click", function (e) {
+      if (e.target === this) {
+        this.style.display = "none";
+        document.querySelector(".switch-input").checked = false;
+      }
     });
 }
 

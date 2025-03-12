@@ -22,13 +22,21 @@
         </div>
         <div class="input-box">
           <img src="/assets/icons/calendar.svg" alt="Calendar" />
-          <label>Início da viagem</label>
-          <img src="/assets/icons/caret-down.svg" alt="Caret" />
+          <input
+            type="text"
+            placeholder="Início da viagem"
+            onfocus="this.type='date'"
+            onblur="if (!this.value) this.type='text'"
+          />
         </div>
         <div class="input-box">
           <img src="/assets/icons/calendar.svg" alt="Calendar" />
-          <label>Final da viagem</label>
-          <img src="/assets/icons/caret-down.svg" alt="Caret" />
+          <input
+            type="text"
+            placeholder="Final da viagem"
+            onfocus="this.type='date'"
+            onblur="if (!this.value) this.type='text'"
+          />
         </div>
         <div class="input-box input-travelers">
           <img src="/assets/icons/users.svg" alt="Users" />
@@ -93,26 +101,29 @@
           <img src="/assets/icons/search.svg" alt="Search" />Cotar Preços
         </button>
 
-        <div class="modal-coupon">
-          <div class="coupon-title flex gap-10">
-            <img src="/assets/icons/check-gradient.svg" alt="Check" />
-            <p>Aplique o cupom PROMO para ganhar 15% off</p>
+        <div class="modal-overlay">
+          <div class="modal-coupon">
+              <div class="coupon-title flex gap-10">
+                  <img src="/assets/icons/check-gradient.svg" alt="Check" />
+                  <p>Aplique o cupom PROMO para ganhar 15% off</p>
+              </div>
+      
+              <div class="input-box">
+                  <img src="/assets/icons/coupon.svg" alt="Coupon" />
+                  <input type="text" placeholder="Cupom" />
+              </div>
+      
+              <div class="coupon-actions flex-center gap-10">
+                  <button type="button" class="secundary-button w-100" onclick="closeModal()">
+                      Limpar cupom
+                  </button>
+                  <button type="button" class="custom-button apply-coupon w-100">
+                      Aplicar
+                  </button>
+              </div>
           </div>
-
-          <div class="input-box">
-            <img src="/assets/icons/coupon.svg" alt="Coupon" />
-            <input type="text" placeholder="Cupom" />
-          </div>
-
-          <div class="coupon-actions flex-center gap-10">
-            <button type="button" class="secundary-button w-100">
-              Limpar cupom
-            </button>
-            <button type="button" class="custom-button apply-coupon w-100">
-              Aplicar
-            </button>
-          </div>
-        </div>
+      </div>
+      
       </div>
     </form>
   </div>
