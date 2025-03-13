@@ -23,13 +23,15 @@ function initHeroModals() {
     ".modal-travelers .apply-travelers"
   );
   const travelersContainer = document.querySelector(".travelers-container");
+  const travelersLabel = document.querySelector(".input-travelers label");
 
   if (
     !plusButton ||
     !minusButton ||
     !travelersCount ||
     !applyButton ||
-    !travelersContainer
+    !travelersContainer ||
+    !travelersLabel
   )
     return;
 
@@ -63,10 +65,17 @@ function initHeroModals() {
 
   applyButton.addEventListener("click", (event) => {
     event.preventDefault();
+    travelersLabel.textContent = `${count} viajante${count > 1 ? "s" : ""}`;
     document.querySelector(".hero-data").classList.remove("data-hidden");
   });
-
   updateTravelersBox();
+
+  document
+    .querySelector(".switch-input")
+    .addEventListener("change", function () {
+      const modalOverlay = document.querySelector(".modal-overlay");
+      modalOverlay.style.display = this.checked ? "flex" : "none";
+    });
 
   document
     .querySelector(".switch-input")
@@ -79,10 +88,32 @@ function initHeroModals() {
     .querySelector(".modal-overlay")
     .addEventListener("click", function (e) {
       if (e.target === this) {
-        this.style.display = "none";
-        document.querySelector(".switch-input").checked = false;
+        closeModal(true);
       }
     });
+
+  document
+    .querySelector(".coupon-title .secundary-button")
+    .addEventListener("click", function () {
+      closeModal(false);
+    });
+
+  document
+    .querySelector(".apply-coupon")
+    .addEventListener("click", function () {
+      closeModal(true);
+    });
+
+  function closeModal(keepSwitchOn) {
+    const modalOverlay = document.querySelector(".modal-overlay");
+    const switchInput = document.querySelector(".switch-input");
+
+    modalOverlay.style.display = "none";
+
+    if (!keepSwitchOn) {
+      switchInput.checked = false;
+    }
+  }
 }
 
 // Review Carousel

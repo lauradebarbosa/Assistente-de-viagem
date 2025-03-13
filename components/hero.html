@@ -4,11 +4,13 @@
       Cote Abaixo o Melhor Preço em
       <span>Seguro Viagem Internacional</span>
     </h1>
+    <h2>Desconto especial ao usar o cupom PROMO*</h2>
     <form>
       <div class="hero-grid">
         <div class="input-box">
           <img src="/assets/icons/airplane.svg" alt="Airplane" />
-          <select placeholder="Para onde vai viajar?">
+          <select>
+            <option>Para onde vai viajar?</option>
             <option>América do Sul (Exceto Brasil)</option>
             <option>América Central ou México</option>
             <option>Estados Unidos ou Canadá</option>
@@ -25,7 +27,7 @@
           <input
             type="text"
             placeholder="Início da viagem"
-            onfocus="this.type='date'"
+            onfocus="this.type='date'; this.showPicker && this.showPicker()"
             onblur="if (!this.value) this.type='text'"
           />
         </div>
@@ -34,10 +36,11 @@
           <input
             type="text"
             placeholder="Final da viagem"
-            onfocus="this.type='date'"
+            onfocus="this.type='date'; this.showPicker && this.showPicker()"
             onblur="if (!this.value) this.type='text'"
           />
         </div>
+        
         <div class="input-box input-travelers">
           <img src="/assets/icons/users.svg" alt="Users" />
           <label>Quantidade de viajantes</label>
@@ -66,7 +69,7 @@
 
       <div class="hero-data data-hidden">
         <p>
-          Para ter acesso ao máximo de descontos, informe seus dados abaixo.
+          Para acesso à ofertas exclusivas informe seus dados.
         </p>
 
         <div class="hero-grid flex-column">
@@ -103,27 +106,35 @@
 
         <div class="modal-overlay">
           <div class="modal-coupon">
-              <div class="coupon-title flex gap-10">
-                  <img src="/assets/icons/check-gradient.svg" alt="Check" />
-                  <p>Aplique o cupom PROMO para ganhar 15% off</p>
-              </div>
-      
-              <div class="input-box">
-                  <img src="/assets/icons/coupon.svg" alt="Coupon" />
-                  <input type="text" placeholder="Cupom" />
-              </div>
-      
-              <div class="coupon-actions flex-center gap-10">
-                  <button type="button" class="secundary-button w-100" onclick="closeModal()">
-                      Limpar cupom
-                  </button>
-                  <button type="button" class="custom-button apply-coupon w-100">
-                      Aplicar
-                  </button>
-              </div>
+            <div class="coupon-title justify-between gap-10">
+              <img src="/assets/icons/check-gradient.svg" alt="Check" />
+              <p class="w-100">Aplique o cupom PROMO para ganhar 15% off</p>
+              <button
+                type="button"
+                class="secundary-button"
+              >
+                <img src="/assets/icons/close.svg" alt="Close">
+              </button>
+            </div>
+
+            <div class="input-box">
+              <img src="/assets/icons/coupon.svg" alt="Coupon" />
+              <input type="text" placeholder="Cupom" />
+            </div>
+
+            <div class="coupon-actions flex-center gap-10">
+              <button
+                type="button"
+                class="secundary-button w-100"
+              >
+                Limpar cupom
+              </button>
+              <button type="button" class="custom-button apply-coupon w-100">
+                Aplicar
+              </button>
+            </div>
           </div>
-      </div>
-      
+        </div>
       </div>
     </form>
   </div>

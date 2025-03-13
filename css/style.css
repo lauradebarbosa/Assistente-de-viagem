@@ -191,7 +191,6 @@ a {
     outline: none;
     font-size: 14px;
     font-weight: 500;
-    font-style: italic;
     color: var(--grayscale-100);
     background-color: transparent;
 }
