@@ -128,6 +128,8 @@ function initReviewCarousel() {
 
   const reviewCards = Array.from(reviewsContainer.children);
   let startIndex = 0;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
   function getVisibleCards() {
     return window.innerWidth < 768 ? 1 : 3;
@@ -149,7 +151,8 @@ function initReviewCarousel() {
     paginationContainer.innerHTML = "";
     reviewCards.forEach((_, i) => {
       const dot = document.createElement("div");
-      dot.classList.add("pagination-dot", i === startIndex && "active");
+      dot.classList.add("pagination-dot");
+      if (i === startIndex) dot.classList.add("active");
       dot.addEventListener("click", () => {
         startIndex = i;
         updateCarousel();
@@ -158,14 +161,33 @@ function initReviewCarousel() {
     });
   }
 
-  prevButton.addEventListener("click", () => {
-    startIndex = (startIndex - 1 + reviewCards.length) % reviewCards.length;
-    updateCarousel();
-  });
-
-  nextButton.addEventListener("click", () => {
+  function nextSlide() {
     startIndex = (startIndex + 1) % reviewCards.length;
     updateCarousel();
+  }
+
+  function prevSlide() {
+    startIndex = (startIndex - 1 + reviewCards.length) % reviewCards.length;
+    updateCarousel();
+  }
+
+  prevButton.addEventListener("click", prevSlide);
+  nextButton.addEventListener("click", nextSlide);
+
+  reviewsContainer.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  reviewsContainer.addEventListener("touchmove", (e) => {
+    touchEndX = e.touches[0].clientX;
+  });
+
+  reviewsContainer.addEventListener("touchend", () => {
+    if (touchStartX - touchEndX > 50) {
+      nextSlide();
+    } else if (touchEndX - touchStartX > 50) {
+      prevSlide();
+    }
   });
 
   window.addEventListener("resize", updateCarousel);
@@ -196,6 +218,9 @@ function initInformationSlider() {
 
   let currentIndex = 0;
   const cardWidth = slider.firstElementChild.offsetWidth + 20;
+  let startX,
+    isDragging = false,
+    scrollLeftStart;
 
   function updatePaginationDots() {
     dots.forEach((dot, index) =>
@@ -209,19 +234,8 @@ function initInformationSlider() {
       slider.scrollLeft + slider.clientWidth >= slider.scrollWidth;
   }
 
-  prevBtn.addEventListener("click", () => {
-    slider.scrollLeft -= cardWidth;
-    currentIndex = Math.max(currentIndex - 1, 0);
-    updatePaginationDots();
-    setTimeout(updateButtons, 300);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    slider.scrollLeft += cardWidth;
-    currentIndex = Math.min(currentIndex + 1, dots.length - 1);
-    updatePaginationDots();
-    setTimeout(updateButtons, 300);
-  });
+  prevBtn.addEventListener("click", () => moveSlider(-1));
+  nextBtn.addEventListener("click", () => moveSlider(1));
 
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
@@ -229,6 +243,51 @@ function initInformationSlider() {
       currentIndex = index;
       updatePaginationDots();
     });
+  });
+
+  function moveSlider(direction) {
+    currentIndex = Math.min(
+      Math.max(currentIndex + direction, 0),
+      dots.length - 1
+    );
+    slider.scrollLeft = currentIndex * cardWidth;
+    updatePaginationDots();
+    setTimeout(updateButtons, 300);
+  }
+
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchmove", (e) => {
+    const diff = startX - e.touches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      moveSlider(diff > 0 ? 1 : -1);
+      startX = e.touches[0].clientX;
+    }
+  });
+
+  slider.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.pageX;
+    scrollLeftStart = slider.scrollLeft;
+    slider.style.cursor = "grabbing";
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const diff = e.pageX - startX;
+    slider.scrollLeft = scrollLeftStart - diff;
+  });
+
+  slider.addEventListener("mouseup", () => {
+    isDragging = false;
+    slider.style.cursor = "grab";
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isDragging = false;
+    slider.style.cursor = "grab";
   });
 
   slider.addEventListener("scroll", updateButtons);
